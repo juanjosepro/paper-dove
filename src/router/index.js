@@ -35,6 +35,23 @@ const routes = [
     component: () => import(/* webpackChunkName: "ResetPassword" */ '../views/ResetPassword.vue'),
   },
   {
+    path: '/create-room',
+    name: 'CreateRoom',
+    component: () => import(/* webpackChunkName: "CreateRoom" */ '../views/CreateRoom.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/update-room/:id',
+    props:true,
+    name: 'UpdateRoom',
+    component: () => import(/* webpackChunkName: "UpdateRoom" */ '../views/UpdateRoom.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

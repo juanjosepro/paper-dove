@@ -5,7 +5,9 @@ const state = {
 }
 
 const getters = {
-
+  getUserUid(state) {
+    return state.user.uid;
+  }
 }
 
 const actions = {

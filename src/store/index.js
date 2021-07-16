@@ -7,16 +7,22 @@ import { auth } from "../firebase";
 
 const store = createStore({
   state: {
+    isLoading: true,
   },
   mutations: {
+    setLoading(state, loading){
+      state.isLoading = loading
+    }
   },
   actions: {
-    checkAuth({ commit }) {
+    checkAuth({ commit, dispatch }) {
       auth.onAuthStateChanged(function(user) {
         if (user) {
           commit("user/setUser", user)
+          dispatch("rooms/getRooms");
         } else {
           commit("user/setUser", null)
+          commit("rooms/setRooms", []);
         }
       })
     }

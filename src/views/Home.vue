@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RoomList :rooms="rooms"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { useStore } from "vuex";
+
+import RoomList from '../components/RoomList.vue';
+import { computed } from '@vue/runtime-core';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    RoomList,
+  },
+  setup() {
+    const store = useStore();
+
+    const rooms = computed(() => store.state.rooms.rooms)
+    
+    return { rooms }
   }
 }
 </script>
