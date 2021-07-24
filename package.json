@@ -1,5 +1,5 @@
 {
-    "name": "vue-chat",
+    "name": "paperdove",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -11,6 +11,7 @@
         "@tailwindcss/postcss7-compat": "^2.0.2",
         "autoprefixer": "^9",
         "core-js": "^3.6.5",
+        "dayjs": "^1.10.6",
         "firebase": "^8.7.1",
         "postcss": "^7",
         "register-service-worker": "^1.7.1",
@@ -29,6 +30,8 @@
         "@vue/compiler-sfc": "^3.0.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^6.7.2",
+        "@vue/eslint-config-airbnb": "^5.0.2",
+        "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-vue": "^7.0.0",
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",

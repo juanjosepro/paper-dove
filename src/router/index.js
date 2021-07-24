@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import store from "../store/index";
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
+import store from '../store/index';
 
 const routes = [
   {
@@ -9,17 +9,17 @@ const routes = [
     component: Home,
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue'),
   },
   {
     path: '/registrarme',
     name: 'Register',
-    component: () => import(/* webpackChunkName: "register" */ '../views/Register.vue')
+    component: () => import(/* webpackChunkName: "register" */ '../views/Register.vue'),
   },
   {
     path: '/user-profile',
@@ -44,9 +44,18 @@ const routes = [
   },
   {
     path: '/update-room/:id',
-    props:true,
+    props: true,
     name: 'UpdateRoom',
     component: () => import(/* webpackChunkName: "UpdateRoom" */ '../views/UpdateRoom.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/chat/:id',
+    props: true,
+    name: 'Chat',
+    component: () => import(/* webpackChunkName: "Chat" */ '../views/Chat.vue'),
     meta: {
       requiresAuth: true,
     },
@@ -57,25 +66,25 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
 router.beforeEach(async (to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
-  if (requiresAuth && !(await store.dispatch("user/getCurrentUser"))) {
-    next({ name : "Login" })
-  } else if (!requiresAuth && (await store.dispatch("user/getCurrentUser"))) {
-    next({ name: "Home" })
+  if (requiresAuth && !(await store.dispatch('user/getCurrentUser'))) {
+    next({ name: 'Login' });
+  } else if (!requiresAuth && (await store.dispatch('user/getCurrentUser'))) {
+    next({ name: 'Home' });
   } else {
-    next()
+    next();
   }
-})
+});
 
-export default router
+export default router;
