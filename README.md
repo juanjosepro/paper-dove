@@ -1,4 +1,8 @@
-# vue-chat
+# Paper Dove
+
+### This is a messaging application through chat rooms.  
+### This application is built with Vue3, Firebase and Tailwind.  
+  
 
 ## Project setup
 ```
@@ -19,6 +23,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

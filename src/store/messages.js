@@ -97,7 +97,6 @@ const actions = {
 const mutations = {
   // eslint-disable-next-line
   setMessages(state, messages) {
-    // console.log(messages);
     state.messages = messages;
   },
   // eslint-disable-next-line

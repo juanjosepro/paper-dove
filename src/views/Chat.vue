@@ -61,12 +61,13 @@ export default {
     const photoURL = ref(null);
     const audioURL = ref(null);
     const userAuth = ref(store.state.user.user);
+    const userUid = ref(store.state.user.user.uid);
     const roomData = ref(null);
 
     /* $ref */
     const containerMessages = ref(null);
     const roomMessages = computed(() => store.getters['messages/getMessages'](props.id));
-    console.log(props.id);
+
     watch(
       roomMessages,
       () => {
@@ -84,7 +85,7 @@ export default {
         store.dispatch('user/updateMeta', {
           roomID: props.id,
           exit: false,
-          uid: store.state.user.user.uid,
+          uid: userUid.value,
         });
       } catch (error) {
         console.error(error.message);
@@ -161,7 +162,7 @@ export default {
       store.dispatch('user/updateMeta', {
         roomID: props.id,
         exit: true,
-        uid: store.state.user.user.uid,
+        uid: userUid.value,
       });
     });
 

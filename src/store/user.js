@@ -81,6 +81,7 @@ const actions = {
         });
       });
     }
+
     if (email) {
       await user.updateEmail(email);
     }
@@ -104,6 +105,8 @@ const actions = {
   },
   async doLogout({ commit }) {
     await auth.signOut();
+    commit('rooms/setRooms', [], { root: true });
+    commit('messages/setMessages', [], { root: true });
     commit('setUser', null);
   },
   async doReset(email) {

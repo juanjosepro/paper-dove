@@ -1,6 +1,11 @@
 <template>
   <p v-if="isLoading">loading</p>
-  <RoomList v-else :unread-messages="unReadMessages" :rooms="roomsByDate"  class="relative top-20"/>
+  <RoomList
+    v-else
+    :unread-messages="unReadMessages"
+    :rooms="roomsByDate"
+    class="relative top-20"
+  />
 </template>
 
 <script>
@@ -26,10 +31,16 @@ export default {
     function existJoined(message) {
       if (meta.value.joined) {
         // eslint-disable-next-line
-        meta.value.joined[message.roomId]
-        && meta.value.joined[message.roomId] < message.createdAt;
+        return meta.value.joined[message.roomId] &&
+          meta.value.joined[message.roomId] < message.createdAt;
       }
+      return false;
     }
+
+    /* const unReadMessages = computed(() => messages.value.filter((message) => (
+      meta.value.joined[message.roomId]
+          && meta.value.joined[message.roomId] < message.createdAt
+    ))); */
 
     const unReadMessages = computed(() => messages.value.filter(existJoined));
 

@@ -3,10 +3,10 @@
     <div
       v-for="(room, i) in rooms"
       :key="i"
-      class="max-w-sm rounded shadow-2xl mx-auto relative w-full overflow-hidden"
+      class="max-w-sm rounded shadow-2xl mx-auto relative w-full"
       :class="{ 'border-2 border-green-400 unread' : hasUnReadMessages(room.id).length }"
     >
-      <div class="room overflow-hidden rounded">
+      <div class="room rounded">
         <div
           v-if="hasUnReadMessages(room.id).length"
           class="rounded-full bg-green-500 border-gray-400 border-2

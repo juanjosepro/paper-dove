@@ -230,6 +230,7 @@ export default {
 
     function theFieldsAreEmpty() {
       if (roomData.value.name <= 3) {
+        // eslint-disable-next-line
         alert('Es necesario que llene todos los campos');
         return false;
       }
@@ -265,9 +266,10 @@ export default {
 
     async function removeRoom() {
       try {
+        // eslint-disable-next-line
         if (window.confirm('¿Desea eliminar esta sala?, al eliminar la sala tambien se eliminaran las conversaciones')) {
           await store.dispatch('rooms/removeRoom', props.id);
-          router.push({ name: 'home' });
+          router.push({ name: 'Home' });
         }
       } catch (error) {
         console.error(error.message);
