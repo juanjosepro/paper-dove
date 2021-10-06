@@ -1,25 +1,25 @@
-# Paper Dove
+# [Aplicación de salas de Chat](#)
 
-### This is a messaging application through chat rooms.  
-### This application is built with Vue3, Firebase and Tailwind.  
-  
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
-## Project setup
-```
-npm install
-```
+>Ver Demo [Paper Dove](https://vue-chat-52dd6.web.app/ "Ver demo")
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Esta aplicación fue creada con el propósito de aprender y plasmar lo aprendido
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### La aplicación no resuelve ninguna necesidad de alguna empresa ni persona, solo tiene la finalidad de crear "algo".
 
-### Lints and fixes files
-```
-npm run lint
-```
+<br />
+
+### El funcionamiento es el siguiente:
+* Puedes registrarte y hacer login.
+* Puedes actualizar tus datos y foto de perfil.
+* Puedes crear salas y eliminarlas como tambien sus mensajes.
+* Puedes enviar mensajes de texto, fotos, audios tambien puedes eliminarlos.
+* Etc...
+
+<br>
+
+## Captura de pantalla
+>Página de modelos
+
+![screenshots4](src/assets/img/paper-dove.png)`
